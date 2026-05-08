@@ -1,0 +1,300 @@
+/*
+ * OK Alone Pricing Calculator — front-end styles
+ * Scoped under .cbp-okacalc throughout.
+ */
+
+/* ---------------------------------------------------------------------------
+   Container
+--------------------------------------------------------------------------- */
+.cbp-okacalc {
+	position: relative;
+	max-width: 560px;
+	font-size: 15px;
+	line-height: 1.5;
+	color: #1d1d1d;
+}
+
+/* ---------------------------------------------------------------------------
+   Steps
+--------------------------------------------------------------------------- */
+.cbp-okacalc__step[hidden] {
+	display: none;
+}
+
+/* ---------------------------------------------------------------------------
+   Form — two-column label + input layout
+--------------------------------------------------------------------------- */
+.cbp-okacalc__form {
+	background: #f9f9f9;
+	border: 1px solid #e0e0e0;
+	border-radius: 6px;
+	padding: 24px 28px;
+}
+
+/* Each field row: label left, input right */
+.cbp-okacalc__field {
+	display: grid;
+	grid-template-columns: 160px 1fr;
+	align-items: center;
+	gap: 10px 14px;
+	margin-bottom: 12px;
+}
+
+/* Error message spans the full width underneath */
+.cbp-okacalc__field .cbp-okacalc__error {
+	grid-column: 2;
+	margin-top: -6px;
+}
+
+/* Submit row — right-align to match input column */
+.cbp-okacalc__field--submit {
+	grid-template-columns: 160px 1fr;
+	margin-top: 8px;
+	margin-bottom: 0;
+}
+.cbp-okacalc__field--submit button {
+	grid-column: 2;
+}
+
+.cbp-okacalc__field label {
+	font-size: 0.9em;
+	font-weight: 600;
+	color: #333;
+	text-align: right;
+	padding-right: 4px;
+}
+
+.cbp-okacalc__field input,
+.cbp-okacalc__field select {
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0.45em 0.7em;
+	font-size: 0.95em;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	background: #fff;
+	transition: border-color 0.15s;
+}
+
+.cbp-okacalc__field input:focus,
+.cbp-okacalc__field select:focus {
+	outline: none;
+	border-color: #1a73e8;
+	box-shadow: 0 0 0 2px rgba(26,115,232,0.15);
+}
+
+.cbp-okacalc__field input[aria-invalid="true"],
+.cbp-okacalc__field select[aria-invalid="true"] {
+	border-color: #c0392b;
+}
+
+.cbp-okacalc__error {
+	display: block;
+	font-size: 0.8em;
+	color: #c0392b;
+	min-height: 1em;
+}
+
+.cbp-okacalc__form-error {
+	margin-top: 0.6em;
+	font-size: 0.875em;
+	color: #c0392b;
+	text-align: center;
+}
+
+/* Collapse gap when error is empty */
+.cbp-okacalc__error:empty {
+	min-height: 0;
+	margin: 0;
+}
+
+/* ---------------------------------------------------------------------------
+   Buttons
+--------------------------------------------------------------------------- */
+.cbp-okacalc__btn {
+	display: inline-block;
+	padding: 0.5em 1.3em;
+	font-size: 0.95em;
+	font-weight: 600;
+	border-radius: 4px;
+	cursor: pointer;
+	border: 2px solid transparent;
+	line-height: 1.4;
+	text-align: center;
+	transition: background 0.15s, border-color 0.15s;
+}
+
+.cbp-okacalc__btn--primary {
+	background: #1a73e8;
+	color: #fff;
+	border-color: #1a73e8;
+}
+
+.cbp-okacalc__btn--primary:hover,
+.cbp-okacalc__btn--primary:focus {
+	background: #1558b0;
+	border-color: #1558b0;
+}
+
+.cbp-okacalc__btn--secondary {
+	background: transparent;
+	color: #1a73e8;
+	border-color: #1a73e8;
+}
+
+.cbp-okacalc__btn--secondary:hover,
+.cbp-okacalc__btn--secondary:focus {
+	background: #e8f0fe;
+}
+
+/* ---------------------------------------------------------------------------
+   Results
+--------------------------------------------------------------------------- */
+.cbp-okacalc__step--results {
+	background: #f9f9f9;
+	border: 1px solid #e0e0e0;
+	border-radius: 6px;
+	padding: 24px 28px;
+}
+
+.cbp-okacalc__results-intro {
+	margin: 0 0 16px;
+	font-size: 0.9em;
+	color: #555;
+}
+
+.cbp-okacalc__results-table-wrap {
+	overflow-x: auto;
+}
+
+.cbp-okacalc__results-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 0.9em;
+}
+
+.cbp-okacalc__results-table th,
+.cbp-okacalc__results-table td {
+	padding: 0.55em 0.75em;
+	text-align: left;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.cbp-okacalc__results-table thead th {
+	font-size: 0.8em;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: #555;
+	background: #f0f0f0;
+	white-space: nowrap;
+}
+
+.cbp-okacalc__row--recommended {
+	background: #eef5ff;
+}
+
+.cbp-okacalc__row--recommended td:first-child {
+	font-weight: 600;
+}
+
+.cbp-okacalc__badge {
+	display: inline-block;
+	margin-left: 0.5em;
+	padding: 0.1em 0.45em;
+	font-size: 0.7em;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	background: #1a73e8;
+	color: #fff;
+	border-radius: 3px;
+	vertical-align: middle;
+}
+
+.cbp-okacalc__na {
+	color: #aaa;
+	font-style: italic;
+	font-size: 0.875em;
+}
+
+.cbp-okacalc__results-note {
+	margin: 12px 0 0;
+	font-size: 0.78em;
+	color: #888;
+}
+
+.cbp-okacalc__results-actions {
+	margin-top: 16px;
+}
+
+/* ---------------------------------------------------------------------------
+   Thank-you
+--------------------------------------------------------------------------- */
+.cbp-okacalc__step--thankyou {
+	background: #f9f9f9;
+	border: 1px solid #e0e0e0;
+	border-radius: 6px;
+	padding: 28px;
+}
+
+.cbp-okacalc__thankyou h2 {
+	margin-top: 0;
+}
+
+/* ---------------------------------------------------------------------------
+   Loading overlay
+--------------------------------------------------------------------------- */
+.cbp-okacalc__loading {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(255,255,255,0.8);
+	border-radius: 6px;
+	z-index: 10;
+}
+
+.cbp-okacalc__loading[hidden] {
+	display: none;
+}
+
+.cbp-okacalc__spinner {
+	display: inline-block;
+	width: 2em;
+	height: 2em;
+	border: 3px solid #ddd;
+	border-top-color: #1a73e8;
+	border-radius: 50%;
+	animation: cbp-spin 0.7s linear infinite;
+}
+
+@keyframes cbp-spin {
+	to { transform: rotate(360deg); }
+}
+
+/* ---------------------------------------------------------------------------
+   Responsive — stack to single column on small screens
+--------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+	.cbp-okacalc__form {
+		padding: 18px;
+	}
+
+	.cbp-okacalc__field,
+	.cbp-okacalc__field--submit {
+		grid-template-columns: 1fr;
+	}
+
+	.cbp-okacalc__field label {
+		text-align: left;
+		padding-right: 0;
+	}
+
+	.cbp-okacalc__field .cbp-okacalc__error,
+	.cbp-okacalc__field--submit button {
+		grid-column: 1;
+	}
+}
